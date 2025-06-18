@@ -1,0 +1,40 @@
+body {
+    background-color: #f7f7f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: #ef5350;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Par exemple pour les images de la card */
+.card-img-top {
+    max-height: 160px;
+    object-fit: contain;
+    background: #f0f0f0;
+}
+
+.btn-see-all {
+    background: #ef5350;
+    color: white;
+}
+
+.btn-see-all:hover {
+    background: #d32f2f;
+    color: white;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+}

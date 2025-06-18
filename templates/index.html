@@ -4,13 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pokédex avec Bootstrap</title>
-    <!-- Bootstrap CSS depuis CDN -->
+    <title>Pokédex - Accueil</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Ton CSS personnalisé -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 </head>
 <body>
-    <div class="container mt-4">
-        <h1 class="mb-4 text-center">Pokédex</h1>
+    <header class="mb-4">
+        <h1 class="text-center py-3">Pokédex</h1>
+    </header>
+
+    <main class="container">
+        <p class="lead text-center mb-5">
+            Bienvenue dans votre Pokédex personnel ! Découvrez les Pokémon, leurs types, et plus encore.
+        </p>
+
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <form method="GET" action="">
+                    <input type="search" name="q" placeholder="Rechercher un Pokémon..." class="form-control" value="{{ request.GET.q }}">
+                </form>
+            </div>
+        </div>
+
         <div class="row">
             {% for p in pokemons %}
             <div class="col-md-3 col-sm-6 mb-4">
@@ -19,8 +36,8 @@
                     <img src="{{ p.image.url }}" class="card-img-top" alt="{{ p.name }}" />
                     {% else %}
                     <svg class="bd-placeholder-img card-img-top" width="100%" height="180"
-                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Pas d'image de {{ p.name }}</title>
+                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pas d'image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Pas d'image pour {{ p.name }}</title>
                         <rect width="100%" height="100%" fill="#868e96"></rect>
                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">Pas d'image</text>
                     </svg>
@@ -36,12 +53,16 @@
                 </div>
             </div>
             {% empty %}
-            <p>Aucun Pokémon trouvé.</p>
+            <p class="text-center">Aucun Pokémon trouvé.</p>
             {% endfor %}
         </div>
-    </div>
+    </main>
 
-    <!-- Bootstrap JS -->
+    <footer class="text-center py-3 text-muted">
+        &copy; 2025 Pokédex by Toavina
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
